@@ -1,0 +1,14 @@
+.formElement {
+  display: flex;
+  padding: 1rem;
+}
+
+label {
+  width: 80px;
+  text-align: left;
+  margin-right: 10px; 
+}
+
+input {
+  flex: 1;
+}
