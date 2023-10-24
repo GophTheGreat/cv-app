@@ -1,13 +1,44 @@
-.formElement {
+form {
+  width: calc(50% - 1rem);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#generalTitle {
+  width: 100%;
+}
+
+.formElement{
+  flex-basis: calc(50% - 2rem);
   display: flex;
   padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.bigFormElement {
+  display: flex;
+  padding: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 label {
-  width: 80px;
+  width: 100%;
+  height: 2em;
   text-align: left;
   margin-right: 10px; 
 }
+
+.bigFormElement textarea {
+  display: flex;
+  flex: 1;
+  height: 12em;
+}
+
+.bigFormElement input::placeholder {
+  text-align: start;
+}
+
 
 input {
   flex: 1;

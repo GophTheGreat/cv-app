@@ -6,6 +6,22 @@
   display: flex;
 }
 
+#app {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .card {
   padding: 2em;
 }
