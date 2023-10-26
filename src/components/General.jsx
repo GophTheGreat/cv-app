@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "../General.css"
 
 function General( {onInputChange}) {
@@ -27,11 +28,12 @@ function General( {onInputChange}) {
           <label htmlFor="phone">Contact Number</label>
           <input id="phone" type="tel" name="phone" placeholder="Home, Cell, or Work phone (whichever is best)"/>
         </div>
-        <div className="bigFormElement">
+        <div className="formElementTextbox">
           <label htmlFor="description">Profile Description</label>
           <textarea id="description" type="text" name="description" placeholder="Describe yourself!"/>
         </div>
       </form>
+      <hr></hr>
     </>
   )
 }

@@ -22,6 +22,10 @@ main {
   justify-content: center;
 }
 
+.formWrapper {
+  width: 50%;
+}
+
 .card {
   padding: 2em;
 }

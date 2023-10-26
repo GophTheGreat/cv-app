@@ -1,5 +1,4 @@
 form {
-  width: calc(50% - 1rem);
   display: flex;
   flex-wrap: wrap;
 }
@@ -15,7 +14,7 @@ form {
   flex-wrap: wrap;
 }
 
-.bigFormElement {
+.formElementTextbox {
   display: flex;
   padding: 1rem;
   flex-wrap: wrap;
@@ -29,16 +28,11 @@ label {
   margin-right: 10px; 
 }
 
-.bigFormElement textarea {
+.formElementTextbox textarea {
   display: flex;
   flex: 1;
   height: 12em;
 }
-
-.bigFormElement input::placeholder {
-  text-align: start;
-}
-
 
 input {
   flex: 1;
