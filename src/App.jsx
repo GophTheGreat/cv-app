@@ -3,16 +3,26 @@ import Header from "./components/Header";
 import Output from "./components/Output";
 import Education from "./components/Education";
 import WorkHistory from "./components/WorkHistory";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
 
-  const [inputText, setInputText] = useState('');
+  const [generalFields, setGeneralFields] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    contact: '',
+    description: ''
+  })
 
-  const handleInputChange = (text) => {
-    setInputText(text);
+  const handleChange = (fieldData) => {
+    setGeneralFields(fieldData)
   };
+
+  useEffect(() => {
+    // This effect will run every time generalFields changes
+  }, [generalFields]);
 
   return (
     <>
@@ -20,13 +30,13 @@ function App() {
         <Header />
         <main>
           <div className="formWrapper">
-            <General onInputChange={handleInputChange}/>
+            <General onChange={handleChange}/>
             <h2>Education</h2>
             <Education/>
             <h2>Work History</h2>
             <WorkHistory/>
           </div>
-          <Output inputText={inputText}/>
+          <Output generalFields={generalFields}/>
         </main>
       </div>
     </>
