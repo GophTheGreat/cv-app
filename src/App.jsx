@@ -20,10 +20,6 @@ function App() {
     setGeneralFields(fieldData)
   };
 
-  useEffect(() => {
-    // This effect will run every time generalFields changes
-  }, [generalFields]);
-
   return (
     <>
       <div id="app">
