@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Output from "./components/Output";
 import Education from "./components/Education";
 import WorkHistory from "./components/WorkHistory";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 
 function App() {
@@ -16,9 +16,33 @@ function App() {
     description: ''
   })
 
-  const handleChange = (fieldData) => {
+  const [educationArray, setEducationArray] = useState([
+    {id: 1, school:'', cityCounty:'', degree:'', dateStart:'', dateEnd:''},
+    {id: 2, school:'', cityCounty:'', degree:'', dateStart:'', dateEnd:''}
+  ]);
+
+  const workArray = [
+
+  ];
+
+  const handleGeneralChange = (fieldData) => {
     setGeneralFields(fieldData)
   };
+
+  const handleEducationChange = (updatedEducation) => {
+    console.log("Updating with");
+    console.log(updatedEducation);
+    console.log("see");
+    const updatedItems = educationArray.map((item) =>
+      item.id === updatedEducation.id ? updatedEducation : item
+    );
+
+    setEducationArray(updatedItems)
+    console.log("New education is");
+    console.log(educationArray);
+  };
+
+  // so the Education component is returning the wrong item somehow
 
   return (
     <>
@@ -26,13 +50,17 @@ function App() {
         <Header />
         <main>
           <div className="formWrapper">
-            <General onChange={handleChange}/>
+            <General onChange={handleGeneralChange}/>
             <h2>Education</h2>
-            <Education/>
+            <hr></hr>
+            {educationArray.map(item => (
+              <Education key={item.id} data={item} onChange={handleEducationChange}/>
+            ))}
+            {/* TODO add "add" button */}
             <h2>Work History</h2>
             <WorkHistory/>
           </div>
-          <Output generalFields={generalFields}/>
+          <Output generalFields={generalFields} educationArray={educationArray}/>
         </main>
       </div>
     </>
