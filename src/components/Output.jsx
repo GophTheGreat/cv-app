@@ -10,12 +10,15 @@ function Output( {generalFields, educationArray} ) {
       <div>
         <p>
           My dude&apos;s (or dudette&apos;s) name is:  <b>{generalFields.firstName + ' ' + generalFields.lastName}</b>
-           More stuff:  <b>{'Email: ' + generalFields.email}</b>
         </p>
+        <p>You can email them at :  <b>{generalFields.email}</b></p>
         {educationArray.map(item => (
           <div key={item.id}>
-            <p>I was edumacated at {item.school}</p>
-            <p>It&apos;s located in{item.cityCounty}</p>
+            <hr></hr>
+            <p>I was edumacated at <b>{item.school}</b></p>
+            <p>It&apos;s located in <b>{item.cityCounty}</b></p>
+            <p>The degree is <b>{item.degree}</b></p>
+            <hr></hr>
           </div>
         ))}
       </div>

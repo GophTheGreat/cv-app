@@ -1,15 +1,19 @@
+/* eslint-disable react/prop-types */
 import "../Education.css"
 import { useState } from "react";
 
-function Education(data) {
+function Education( { data, onChange }) {
   const [educationFields, setEducationFields] = useState(data)
+
+  console.log('In education here is field: ');
+  console.log(educationFields);
   
   const handleInput = (e) => {
     const update = {...educationFields,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     };
     setEducationFields(update)
-    data.onChange(update)
+    onChange(update)
     console.log("Sending Education object")
     console.log(update)
   };
