@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import "../General.css"
+import "../styles/General.css"
 import { useState } from "react";
 
 function General(props) {

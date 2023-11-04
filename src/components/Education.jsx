@@ -1,12 +1,9 @@
 /* eslint-disable react/prop-types */
-import "../Education.css"
+import "../styles/Education.css"
 import { useState } from "react";
 
 function Education( { data, onChange }) {
   const [educationFields, setEducationFields] = useState(data)
-
-  console.log('In education here is field: ');
-  console.log(educationFields);
   
   const handleInput = (e) => {
     const update = {...educationFields,
@@ -42,9 +39,6 @@ function Education( { data, onChange }) {
           <input type="date" name="dateEnd" onChange={handleInput}/>
         </div>
       </form>
-      <button>Delete</button>
-      {/* TODO make Delete button function */}
-      <hr></hr>
     </>
   )
 }
