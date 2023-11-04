@@ -8,6 +8,9 @@ import "./styles/App.css";
 
 function App() {
 
+  const [nextEducationID, setNextEducationID] = useState(3);
+  const [nextWorkID, setnextWorkID] = useState(3);
+
   const [generalFields, setGeneralFields] = useState({
     firstName: 'Name',
     lastName: 'LastName',
@@ -46,6 +49,37 @@ function App() {
     console.log(workArray)
   }
 
+  function addEducation() {
+    const newEducation = {
+      id: nextEducationID,
+    }
+    const updatedArray = Array.from(educationArray)
+    updatedArray.push(newEducation)
+    setNextEducationID(nextEducationID + 1)
+    setEducationArray(updatedArray);
+  }
+
+  function deleteEducation(id) {
+    const trimmedArray = educationArray.filter((item) => item.id !== id)
+    setEducationArray(trimmedArray);
+  }
+
+  function addWork() {
+    const newWork = {
+      id: nextWorkID,
+    }
+    const updatedArray = Array.from(workArray)
+    updatedArray.push(newWork)
+    setnextWorkID(nextWorkID + 1)
+    setWorkArray(updatedArray);
+  }
+
+  function deleteWork(id) {
+    const trimmedArray = workArray.filter((item) => item.id !== id)
+    setWorkArray(trimmedArray);
+  }
+
+
   const lastEducationIndex = educationArray.length - 1;
   const lastWorkIndex = workArray.length - 1;
 
@@ -57,24 +91,23 @@ function App() {
         <Header />
         <main>
           <div className="formWrapper">
-            <General onChange={handleGeneralChange}/>
+            <General data={generalFields} onChange={handleGeneralChange}/>
             <h2>Education</h2>
             <hr></hr>
             {educationArray.map((item, index) => (
               <>
                 <Education key={item.id} data={item} onChange={handleEducationChange}/>
-                {educationArray.length > 1 && <button>Delete</button>}
-                {index === lastEducationIndex && <button>Add</button>}
+                {educationArray.length > 1 && <button className="deleteButton" onClick={() => deleteEducation(item.id)}>Delete</button>}
+                {index === lastEducationIndex && <button className="addButton" onClick={addEducation}>Add</button>}
                 <hr></hr>
               </>
             ))}
-            {/* TODO add "add" button */}
             <h2>Work History</h2>
             {workArray.map((item, index) => (
               <>
                 <WorkHistory key={item.id} data={item} onChange={handleWorkHistoryChange}/>
-                {workArray.length > 1 && <button>Delete</button>}
-                {index === lastWorkIndex && <button>Add</button>}
+                {workArray.length > 1 && <button className="deleteButton" onClick={() => deleteWork(item.id)}>Delete</button>}
+                {index === lastWorkIndex && <button className="addButton" onClick={addWork}>Add</button>}
                 {index !== lastWorkIndex && <hr></hr>}
               </>
             ))}

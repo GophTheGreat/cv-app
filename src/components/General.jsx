@@ -2,17 +2,11 @@
 import "../styles/General.css"
 import { useState } from "react";
 
-function General(props) {
+function General( { data, onChange } ) {
 
   //I want to return an object
   //That contains text from all the fields
-  const [generalFields, setGeneralFields] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    contact: '',
-    description: ''
-  })
+  const [generalFields, setGeneralFields] = useState(data)
 
   const handleInput = (e) => {
     //console.log(e.target.value)
@@ -20,7 +14,7 @@ function General(props) {
       [e.target.name]: e.target.value
     };
     setGeneralFields(update)
-    props.onChange(update)
+    onChange(update)
   };
 
   return (

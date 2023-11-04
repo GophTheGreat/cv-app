@@ -2,13 +2,6 @@
 import "../styles/Output.css"
 
 function Output( {generalFields, educationArray, workArray} ) {
-  console.log("in output");
-  console.log("education:");
-  console.log(educationArray);
-  console.log("work");
-  console.log(workArray);
-  console.log(workArray[0])
-
   // const [generalFields, setGeneralFields] = useState({
   //   firstName: '',
   //   lastName: '',

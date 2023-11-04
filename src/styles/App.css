@@ -35,3 +35,28 @@ main {
 .read-the-docs {
   color: #888;
 }
+
+.deleteButton, .addButton {
+  margin: 1rem;
+  border: 2px solid black;
+}
+
+.deleteButton{
+  background-color: rgb(255, 226, 226);
+  transition: background-color 0.25s;
+}
+
+.deleteButton:hover {
+  border: 2px solid red;
+  background-color: rgb(255, 205, 97);
+}
+
+.addButton {
+  background-color: rgb(232, 253, 205);
+  transition: background-color 0.25s;
+}
+
+.addButton:hover {
+  border: 2px solid blue;
+  background-color: rgb(103, 248, 90);
+}
